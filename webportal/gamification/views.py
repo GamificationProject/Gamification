@@ -8,3 +8,9 @@ class IndexView(generic.ListView):
     
     def get_queryset(self):
         return Game.objects.all()
+    
+class RegisterView():
+    pass
+
+class LoginView():
+    pass
