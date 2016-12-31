@@ -27,12 +27,21 @@
 				</li>
 			</ul>-->
 			<ul class="nav navbar-nav navbar-right">
+				{% if not request.user.is_authenticated %}
 				<li class="">
-				<a href="{% url 'gamification:register' %}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Register</a>
+				<a href="{% url 'gamification:register' %}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>&nbsp;Register</a>
 				</li>
 				<li class="">
-				<a href="#"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;Login</a>
+				<a href="{% url 'gamification:login' %}"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;Login</a>
 				</li>
+				{% else %}
+				<li class="">
+				<a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Hi! {{ request.user.first_name }}</a>
+				</li>
+				<li class="">
+				<a href="{% url 'gamification:logout' %}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Logout</a>
+				</li>
+				{% endif %}
 			</ul>
 		</div>
 	</nav>
