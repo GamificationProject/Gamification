@@ -67,3 +67,7 @@ class LogOutView(View):
     def get(self, request):
         logout(request)
         return redirect('gamification:index')
+    
+class TrialView(View):
+    def get(self, request):
+        return render(request, 'gamification/signup-trial.html', {})
